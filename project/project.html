@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Isaac Marquez - Portfolio - Projects</title>
+		<!-- stylesheet -->
+		<link rel="stylesheet" href="/project/styles-2.css" />
+		<!-- Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&display=swap" rel="stylesheet">
+
+		<script src="https://unpkg.co/gsap/dist/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- nav bar -->
+			<nav class="nav">
+				<div class="nav__logo">
+					<a href="/index.html">IM</a>
+				</div>
+				
+				<div class="nav__items">
+					<div class="nav__items-link"><a href="/Art page/gallery.html">Gallery</a></div>
+					<div class="nav__items-link active"><a href="/project/project.html">Projects</a></div>
+					<div class="nav__items-link"><a href="/about/about.html">About</a></div>
+				</div>
+			</nav>
+
+			<div class="header">
+				<div class="header-left">
+					My <br /><span>- Projects</span>
+					<div class="link"><a href="https://isaac-marquez-portfolio-website.vercel.app/">Software Development</a></div>
+				</div>
+				<div class="header-right">/Designs & Layout</div>
+			</div>
+			<!-- projects -->
+			<div class="container">
+				<div class="container-items">
+					<div class="container-img-wrap">
+						<div class="container-img"></div>
+					</div>
+					<div class="item">
+						<a href="/Project pages/1.html" class="container-item" data-img="1.png" onmouseover="document.body.style.backgroundColor ='#AD2124'">
+							<h3>1</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/2.html" class="container-item" data-img="2.png" onmouseover="document.body.style.backgroundColor ='#6BA5CD'">
+							<h3>2</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/3.html" class="container-item" data-img="3.png" onmouseover="document.body.style.backgroundColor ='grey'">
+							<h3>3</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/4.html" class="container-item" data-img="4.png" onmouseover="document.body.style.backgroundColor ='#7435B9'">
+							<h3>4</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/5.html" class="container-item" data-img="5.png" onmouseover="document.body.style.backgroundColor ='#D7AD70'">
+							<h3>5</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/6.html" class="container-item" data-img="6.png" onmouseover="document.body.style.backgroundColor ='#E6D887'">
+							<h3>6</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/7.html" class="container-item" data-img="7.png" onmouseover="document.body.style.backgroundColor ='#FE3447'">
+							<h3>7</h3>
+						</a>
+					</div>
+					<div class="item">
+						<a href="/Project pages/8.html" class="container-item" data-img="8.png" onmouseover="document.body.style.backgroundColor ='#1C203B'">
+							<h3>8</h3>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- script -->
+	<script src="/project/index.js"></script>
+	<script>
+		const allcontainer = gsap.utils.toArray(".container-item");
+		const venueImageWrap = document.querySelector(".container-img-wrap");
+		const venueImage = document.querySelector(".container-img");
+
+		function initcontainer() {
+			allcontainer.forEach((link) => {
+				link.addEventListener("mouseenter", venueHover);
+				link.addEventListener("mouseleave", venueHover);
+				link.addEventListener("mousemove", moveVenueImage);
+			});
+		}
+		//moving image
+		function moveVenueImage(e) {
+			let xpos = e.clientX;
+			let ypos = e.clientY;
+			const tl = gsap.timeline();
+			tl.to(venueImageWrap, {
+				x: xpos,
+				y: ypos,
+			});
+		}
+
+		//number enlarged
+		function venueHover(e) {
+			if (e.type === "mouseenter") {
+				const targetImage = e.target.dataset.img;
+
+				const tl = gsap.timeline();
+				tl.set(venueImage, {
+					backgroundImage: `url(${targetImage})`,
+				}).to(venueImageWrap, {
+					duration: 0.5,
+					autoAlpha: 1,
+				});
+			} else if (e.type === "mouseleave") {
+				const tl = gsap.timeline();
+				tl.to(venueImageWrap, {
+					duration: 0.5,
+					autoAlpha: 0,
+				});
+			}
+		}
+
+		//Loading of text
+		function init() {
+			initcontainer();
+		}
+
+		window.addEventListener("load", function () {
+			init();
+		});
+
+		tl = new TimelineMax();
+
+		tl.from(".navbar > div", 1.6, {
+			opacity: 0,
+			y: 60,
+			ease: Expo.easeInOut,
+			delay: 0.6,
+		});
+
+		tl.from(
+			".site-logo",
+			1.6,
+			{
+				opacity: 0,
+				y: 40,
+				ease: Expo.easeInOut,
+			},
+			"-=1.6"
+		);
+
+		tl.staggerFrom(
+			".site-menu > div",
+			1,
+			{
+				opacity: 0,
+				y: 60,
+				ease: Power2.easeOut,
+			},
+			0.2
+		);
+
+		tl.staggerFrom(
+			".header > div",
+			1,
+			{
+				opacity: 0,
+				y: 60,
+				ease: Power2.easeOut,
+				delay: -1.4,
+			},
+			0.2
+		);
+	</script>
+</html>

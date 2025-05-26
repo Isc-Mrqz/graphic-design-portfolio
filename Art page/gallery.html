@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Isaac Marquez - Portfolio - My Works</title>
+    <link rel="icon" href="img/icon.jpg" type="icon/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <link rel="stylesheet" href="/Art page/css/style2.css">
+    <link rel="stylesheet" href="/Art page/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- nav bar-->
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="/index.html">IM</a>
+            </div>
+
+            <div class="nav__items">
+                <div class="nav__items-link active"><a href="/Art page/gallery.html">Gallery</a></div>
+                <div class="nav__items-link"><a href="/project/project.html">Projects</a></div>
+                <div class="nav__items-link"><a href="/about/about.html">About</a></div>
+            </div>
+        </nav>
+
+        <!-- div .wrapp -->
+        <div class="wrap">
+
+            <h1 class="title">My works</h1>
+
+            <ul class="card">
+                <li class="card__item" data-fancybox="card" data-src="/images/red n black - sign.png">
+                    <img src="/images/red n black - sign.png" alt="1" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+                <li class="card__item" data-fancybox="card" data-src="/images/hot ginger lake lady final.png">
+                    <img src="/images/hot ginger lake lady final.png" alt="2" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+                <li class="card__item" data-fancybox="card" data-src="/images/pink crazy idk - finalll.png">
+                    <img src="/images/pink crazy idk - finalll.png" alt="3" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+                <li class="card__item" data-fancybox="card" data-src="/images/rina sawayama.png">
+                    <img src="/images/rina sawayama.png" alt="4" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+                <li class="card__item" data-fancybox="card" data-src="/images/image-2.png">
+                    <img src="/images/image-2.png" alt="5" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+                <li class="card__item" data-fancybox="card" data-src="/images/Boyfriend - dove 1 with signature.png">
+                    <img src="/images/Boyfriend - dove 1 with signature.png" alt="6" class="card__img">
+                    <span class="zoom">zoom</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    
+    <!-- /div .wrapp END -->
+    <script src="/Art page/js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind('[data-fancybox="card"]', {
+            dragToClose: false,
+
+            closeButton: "top",
+
+            Image: {
+                zoom: false,
+            },
+
+            on: {
+                initCarousel: (fancybox) => {
+                    const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+
+                    fancybox.$container.style.setProperty(
+                        "--bg-image",
+                        `url("${slide.$thumb.src}")`
+                    );
+                },
+                "Carousel.change": (fancybox, carousel, to, from) => {
+                    const slide = carousel.slides[to];
+
+                    fancybox.$container.style.setProperty(
+                        "--bg-image",
+                        `url("${slide.$thumb.src}")`
+                    );
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
