@@ -422,17 +422,3 @@ html {
   letter-spacing: 1px;
 }
 
-
-
-.carousel-track {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* enables smooth scrolling on iOS */
-  scroll-behavior: smooth;
-}
-.carousel-track img {
-  flex-shrink: 0;
-  width: 100%;
-  scroll-snap-align: start;
-}
