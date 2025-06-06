@@ -172,7 +172,7 @@ html {
 
 
 .hero-banner {
-  width: 100vw; /* Full viewport width */
+  width: 100%; /* Full viewport width */
 }
 
 
