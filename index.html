@@ -6,7 +6,7 @@
   <title>DesertGate</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="shortcut icon" href="/images/logo.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/logo.png" type="image/svg+xml">
 
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -26,9 +26,9 @@ body::before {
 <header class="navbar">
 <div class="nav-container">
 <a href="/" class="logo">
-  <img src="Images/logo.svg" alt="Logo" class="logo-img">
+  <img src="Images/logo.png" alt="Logo" class="logo-img">
 </a>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
+<button id="hamburgerBtn" class="hamburger" onclick="toggleMenu()">☰</button>
   <div class="nav-links" id="mobileMenu">
     <a href="#brochure">Brochure Design</a>
     <a href="#posts">Social Media Posts</a>
@@ -46,7 +46,7 @@ body::before {
   </div>
 </div>
 
-
+<div class="content-wrapper">
 <div class="instagram-feed">
 
   <!-- Separator  -->
@@ -98,7 +98,22 @@ body::before {
 </div>
 
     <div class="caption">
-      <strong>Isaac Marquez</strong> Roadtrip through the mountains 🏞️ #adventuretime
+      <strong>Isaac Marquez</strong> <p>
+  Escape to where golden dunes meet timeless charm.<br>
+  From camel treks at sunrise to starlit dinners under the desert sky, Bab Al Shams is a journey into Arabian elegance.<br>
+  Unwind, explore, and experience the magic of the desert—reimagined.
+</p>
+<br>
+<p>
+  <span style="color:#1877F2">#BabAlShams</span>
+  <span style="color:#1877F2">#DesertLuxury</span>
+  <span style="color:#1877F2">#DubaiGetaway</span>
+  <span style="color:#1877F2">#ArabianEscape</span>
+  <span style="color:#1877F2">#TravelDubai</span>
+</p>
+
+
+
     </div>
 
       <!-- PDF View Button -->
@@ -134,7 +149,20 @@ body::before {
 </div>
 
     <div class="caption">
-      <strong>Isaac Marquez</strong> Just a cat being a cat 🐾 #meow
+      <strong>Isaac Marquez</strong> <p>
+  Tranquility, elegance, and world-class indulgence — all set on the shores of Dubai's most exclusive escape.<br>
+  From serene poolside moments to Michelin-starred dining and private beachfront stays,<br>
+  One&Only The Palm is where sophistication meets serenity.
+</p>
+<br>
+<p>
+  <span style="color:#1877F2">#OneAndOnlyThePalm</span>
+  <span style="color:#1877F2">#DubaiLuxury</span>
+  <span style="color:#1877F2">#SeasideEscape</span>
+  <span style="color:#1877F2">#LuxuryRetreat</span>
+  <span style="color:#1877F2">#TravelDubai</span>
+</p>
+
     </div>
 
       <!-- PDF View Button -->
@@ -171,7 +199,20 @@ body::before {
 
 
     <div class="caption">
-      <strong>Isaac Marquez</strong> Cooked this for brunch today 😋 #foodie
+      <strong>Isaac Marquez</strong> <p>
+  Where contemporary design meets beachfront bliss.<br>
+  From panoramic skyline views to elevated dining and serene spa rituals,<br>
+  Mandarin Oriental Jumeirah is your urban sanctuary by the sea.
+</p>
+<br>
+<p>
+  <span style="color:#1877F2">#MandarinOrientalJumeirah</span>
+  <span style="color:#1877F2">#DubaiLuxury</span>
+  <span style="color:#1877F2">#BeachfrontEscape</span>
+  <span style="color:#1877F2">#UrbanRetreat</span>
+  <span style="color:#1877F2">#TravelDubai</span>
+</p>
+
     </div>
 
       <!-- PDF View Button -->
@@ -195,23 +236,43 @@ body::before {
 </div>
 
 </div>
-
+</div>
 
 <script>
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navLinks = document.getElementById('navLinks');
 
   hamburgerBtn.addEventListener('click', () => {
+    const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+
+    // Toggle nav menu visibility
     navLinks.classList.toggle('show');
+
+    // Toggle aria-expanded attribute
+    hamburgerBtn.setAttribute('aria-expanded', String(!isExpanded));
+
+    // Hide hamburger button if menu is open, show it if menu is closed
+    hamburgerBtn.style.display = isExpanded ? 'block' : 'none';
   });
 </script>
+
 <script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const backdrop = document.querySelector('.nav-backdrop');
-    menu.classList.toggle('show');
-    backdrop.classList.toggle('show');
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const backdrop = document.querySelector('.nav-backdrop');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+
+  menu.classList.toggle('show');
+  backdrop.classList.toggle('show');
+
+  // Change the button text between hamburger and X
+  if (menu.classList.contains('show')) {
+    hamburgerBtn.textContent = '×';  // Show X when menu is open
+  } else {
+    hamburgerBtn.textContent = '☰';  // Show hamburger when menu is closed
   }
+}
+
 </script>
 
 
