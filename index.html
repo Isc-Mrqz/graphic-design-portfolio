@@ -6,6 +6,7 @@
   <title>DesertGate</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="/images/logo.svg" type="image/svg+xml">
 
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -22,6 +23,23 @@ body::before {
 </head>
 <body>
 
+<header class="navbar">
+<div class="nav-container">
+<a href="/" class="logo">
+  <img src="Images/logo.svg" alt="Logo" class="logo-img">
+</a>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <div class="nav-links" id="mobileMenu">
+    <a href="#brochure">Brochure Design</a>
+    <a href="#posts">Social Media Posts</a>
+    <a href="#reel">Social Media Reel</a>
+  </div>
+</div>
+<div class="nav-backdrop" onclick="toggleMenu()"></div>
+
+</header>
+
+
 <div class="hero-banner">
   <div class="hero-text">
     <h1>DesertGate Assessment Task</h1>
@@ -32,7 +50,7 @@ body::before {
 <div class="instagram-feed">
 
   <!-- Separator  -->
-<div class="section-separator">
+<div class="section-separator" id="brochure">
   <h2>Brochure Design</h2>
   <hr>
 </div>
@@ -46,7 +64,7 @@ body::before {
 
 
   <!-- Separator between posts and reel -->
-<div class="section-separator">
+<div class="section-separator" id="posts">
   <h2>Social Media Posts</h2>
   <hr>
 </div>
@@ -161,7 +179,7 @@ body::before {
   </div>
 
   <!-- Social Media Reel separator -->
-<div class="section-separator">
+<div class="section-separator" id="reel">
   <h2>Social Media Reel</h2>
   <hr>
 </div>
@@ -179,6 +197,22 @@ body::before {
 </div>
 
 
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburgerBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.querySelector('.nav-backdrop');
+    menu.classList.toggle('show');
+    backdrop.classList.toggle('show');
+  }
+</script>
 
 
 <script src="script.js"></script>

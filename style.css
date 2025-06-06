@@ -14,6 +14,123 @@ body {
   align-items: center;       /* center horizontally */
   min-height: 100vh;
 }
+html {
+  scroll-behavior: smooth;
+}
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+.show {
+  display: flex !important;
+}
+
+
+/* Navbar Styles */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    max-width: 300px;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 1.5rem;
+    gap: 2.5rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links a {
+  font-size: 1.5rem;
+}
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2.5rem;
+    color: #333;
+    background: none;
+    border: none;
+    z-index: 1001;
+  }
+
+  .nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 900;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-backdrop.show {
+    display: block;
+  }
+}
+
+.nav-links a {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+
 .hero-banner {
   width: 100vw; /* Full viewport width */
 }
@@ -259,7 +376,7 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 4.5em;
+  font-size: 3.5em;
   margin: 0;
   letter-spacing: 1px;
 }
