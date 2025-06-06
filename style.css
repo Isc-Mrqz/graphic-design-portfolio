@@ -176,10 +176,12 @@ html {
   width: 100%; /* Full viewport width */
 }
 
-
 .instagram-feed {
   width: 100%;
   max-width: 400px;
+  margin: 0 auto; /* Center the feed */
+  padding: 0 16px; /* Add spacing on small screens */
+  box-sizing: border-box;
 }
 
 .instagram-post {
@@ -214,7 +216,9 @@ html {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 1 / 1; /* Keeps a square ratio */
+  max-height: 400px;
 }
 
 .carousel-track {
@@ -224,11 +228,10 @@ html {
 
 .carousel-track img {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
-
 .arrow {
   position: absolute;
   top: 50%;
